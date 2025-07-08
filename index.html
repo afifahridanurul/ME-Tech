@@ -27,13 +27,30 @@
 </style>
 
 </head>
-<body class="font-sans bg-white">
+<body class="font-sans bg-transparent min-h-screen overflow-x-hidden">
 
-  <nav class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-sm px-8 py-4 flex flex-wrap justify-between items-center">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-sm px-8 py-4 flex justify-between items-center">
     <div class="flex items-center gap-4">
       <img src="/image/lg.png" alt="logo" class="w-24" />
-      <button class="text-cyan-600 text-xl lg:hidden" onclick="toggleMenu()">☰</button>
     </div>
+
+    <!-- Button + Dropdown -->
+    <div class="relative lg:hidden">
+      <button onclick="toggleMenu()" class="text-cyan-600 text-2xl focus:outline-none">☰</button>
+
+      <!-- Floating Menu -->
+      <ul id="mobileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg p-4 space-y-2 z-50">
+        <li><a href="#" class="block text-gray-700 hover:text-cyan-500">Home</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-cyan-500">About</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-cyan-500">Service</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-cyan-500">Portfolio</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-cyan-500">Team</a></li>
+        <li><a href="#" class="block text-gray-700 hover:text-cyan-500">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Desktop Menu -->
     <ul class="hidden lg:flex items-center gap-6 font-semibold">
       <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Home</a></li>
       <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">About</a></li>
@@ -43,14 +60,13 @@
       <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Contact</a></li>
     </ul>
   </nav>
- 
-  <header class="pt-28 px-6 md:px-20 pb-10 bg-gradient-to-br from-cyan-300 via-sky-100 to-cyan-200 flex flex-col md:flex-row items-center gap-10">
+
+  <!-- Hero Section -->
+  <header class="w-full pt-28 px-6 md:px-20 pb-10 bg-gradient-to-br from-cyan-300 via-sky-100 to-cyan-200 flex flex-col md:flex-row items-center gap-10 overflow-hidden">
     <div class="flex-1 text-white">
-      <h1 class="text-4xl font-bold mb-4">
-        Solusi teknologi <br />
+      <h1 class="text-4xl font-bold mb-4">Solusi teknologi <br />
         yang <span class="text-indigo-700">inovatif</span><br />
-        untuk bisnis Anda
-      </h1>
+        untuk bisnis Anda</h1>
       <p class="mb-6">Me-Tech hadir memberikan solusi teknologi yang inovatif untuk bisnis Anda.</p>
       <a href="#" class="inline-block bg-gradient-to-r from-cyan-400 to-cyan-600 text-white font-bold px-6 py-3 rounded-lg shadow-md">Hubungi Kami</a>
     </div>
@@ -59,6 +75,7 @@
     </div>
   </header>
 
+  <!--About Us-->
   <h1 class="text-[2.5rem] italic text-center md:text-left mt-20 md:ml-20 text-[#01B3BF]">About Us</h1>
 
   <section class="flex flex-col-reverse md:flex-row items-center justify-center gap-8 p-6 md:p-12">
@@ -84,7 +101,8 @@
           <div class="bg-[#F0FFFE] rounded-[10px] p-[10px] mb-[15px] flex justify-center items-center h-[160px]">
             <img src="/image/p1.png" alt="Komitmen Kerjasama" class="max-h-full max-w-full object-contain" />
           </div>
-          <h3 class="text-[1.1rem] mb-[10px] font-semibold">Komitmen Me-Tech dalam Setiap Kerjasama</h3>
+          <h3 class="text-[1.1rem] mb
+          -[10px] font-semibold">Komitmen Me-Tech dalam Setiap Kerjasama</h3>
           <p class="text-[0.95rem] leading-[1.5]">
             Kami di Me-Tech menjadikan kepuasan klien sebagai prioritas utama dalam setiap kerjasama, dengan komitmen untuk memberikan layanan terbaik dan membangun hubungan yang langgeng.
           </p>
@@ -112,30 +130,48 @@
   </section>
 
   <section class="flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-r from-[#dffffd] to-[#c3fffc] rounded-[20px] p-6 md:p-10 gap-8 w-full max-w-[1200px] mx-auto mt-8">
-    <div class="w-full md:w-1/2">
-      <h2 class="text-[#00a6a6] mb-5 text-[24px] font-semibold text-center md:text-left">Features</h2>
-      <ul class="space-y-4">
-        <li class="flex flex-col md:flex-row-reverse md:items-center md:justify-end gap-3 text-[16px] text-[#19656B]">
-          <img src="/image/f1.png" class="w-6 h-6" alt="icon1">
-          <span>Menyediakan platform yang berkualitas, komitmen dan terjamin.</span>
-        </li>
-        <li class="flex flex-col md:flex-row-reverse md:items-center md:justify-end gap-3 text-[16px] text-[#19656B]">
-          <img src="/image/f2.png" class="w-6 h-6" alt="icon2">
-          <span>Membuka peluang pengembangan usaha (entrepreneurship), yang terintegrasi dengan layanan digital (online).</span>
-        </li>
-        <li class="flex flex-col md:flex-row-reverse md:items-center md:justify-end gap-3 text-[16px] text-[#19656B]">
-          <img src="/image/f3.png" class="w-6 h-6" alt="icon3">
-          <span>Membantu para pelaku usaha untuk meningkatkan peluang positif dari segi keuntungan material.</span>
-        </li>
-      </ul>
+  <!-- Kiri: Features List -->
+  <div class="w-full md:w-1/2 flex flex-col items-center md:items-end">
+  <h2 class="text-[#00a6a6] mb-5 text-[24px] font-semibold text-center md:text-left">Features</h2>
+    <div class="space-y-6">
+      <!-- Item 1 -->
+      <div class="flex items-center justify-center md:justify-end gap-4">
+        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
+          <p>Menyediakan platform yang berkualitas,</p>
+          <p>komitmen dan terjamin.</p>
+        </div>
+        <img src="/image/f1.png" class="w-7 h-7" alt="icon1">
+      </div>
+
+      <!-- Item 2 -->
+      <div class="flex items-center justify-center md:justify-end gap-4">
+        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
+          <p>Membuka peluang pengembangan usaha (entrepreneurship),</p>
+          <p>yang terintegrasi dengan layanan digital (online).</p>
+        </div>
+        <img src="/image/f2.png" class="w-7 h-7" alt="icon2">
+      </div>
+
+      <!-- Item 3 -->
+      <div class="flex items-center justify-center md:justify-end gap-4">
+        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
+          <p>Membantu para pelaku usaha untuk meningkatkan</p>
+          <p>peluang positif dari segi keuntungan material.</p>
+        </div>
+        <img src="/image/f3.png" class="w-7 h-7" alt="icon3">
+      </div>
     </div>
-    <div class="w-full md:w-1/2 text-center">
-      <p class="text-[#00a6a6] font-bold mb-5 text-[16px] leading-relaxed">
-        Dapatkan Solusi Kebutuhan Teknologi <br/> Bisnis Anda Bersama Kami
-      </p>
-      <img src="/image/pc.png" alt="Device Mockup" class="w-full max-w-[350px] h-auto mx-auto" />
-    </div>
-  </section>
+  </div>
+
+  <!-- Kanan: Gambar + Teks -->
+  <div class="w-full md:w-1/2 text-center flex flex-col items-center">
+    <p class="text-[#00a6a6] font-bold mb-5 text-[16px] leading-relaxed text-center">
+      Dapatkan Solusi Kebutuhan Teknologi<br />
+      Bisnis Anda Bersama Kami
+    </p>
+    <img src="/image/pc.png" alt="Device Mockup" class="w-full max-w-[350px] h-auto" />
+  </div>
+</section>
   
 <section class="px-6 py-16 bg-gradient-to-tr from-cyan-50 to-transparent">
   <div class="w-full max-w-4xl mx-auto">
@@ -144,11 +180,7 @@
       <h2 class="text-3xl font-semibold text-cyan-600 mb-1">Our Services</h2>
       <p class="text-gray-600 text-sm">Innovative Technology Solutions For Your Business</p>
     </div>
-
-    
     <div class="flex flex-col lg:flex-row gap-10 justify-center">
-      
-      
       <div class="flex flex-col gap-4 overflow-y-auto max-h-64 pr-2 custom-scroll">
         <button class="w-full lg:w-56 py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-200 text-left pl-5">
           Software Development
@@ -169,7 +201,6 @@
           Additional Menu
         </button>
       </div>
-
       
       <div class="flex flex-col lg:flex-row items-start gap-6 mt-10 lg:mt-0">
         <div class="w-full lg:w-auto">
@@ -182,9 +213,8 @@
           </p>
         </div>
       </div>
-
     </div>
-  </div>
+  </div> 
 <section class="py-10 px-4 bg-white">
   <div class="text-center mb-6">
     <h2 class="text-[#01B3BF] text-xl font-semibold uppercase">Our Clients</h2>
@@ -278,7 +308,7 @@
 
     <div>
       <h3 class="font-bold text-[#01B3BF] mb-2">CONTACT US</h3>
-      <p>Jln. Kawaluyaan Indah XXI no.8<br />Kota Bandung – Jawa Barat</p>
+      <p>Jln. Kawaluyaan Indah XXI no.8<br />Kota Bandung - Jawa Barat</p>
       <p class="mt-2"><strong>Phone</strong> : +62 878-2323-7339</p>
       <p><strong>Email</strong> : info@me-tech.id</p>
     </div>
