@@ -30,17 +30,16 @@
 <body class="font-sans bg-transparent min-h-screen overflow-x-hidden">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-sm px-8 py-4 flex justify-between items-center">
+   <div class="px-8">
+  <nav class="fixed top-0 left-0 w-full z-50 bg-black/15 backdrop-blur-sm px-6 py-4 flex justify-between items-center">
     <div class="flex items-center gap-4">
       <img src="/image/lg.png" alt="logo" class="w-24" />
     </div>
-
-    <!-- Button + Dropdown -->
     <div class="relative lg:hidden">
       <button onclick="toggleMenu()" class="text-cyan-600 text-2xl focus:outline-none">☰</button>
 
       <!-- Floating Menu -->
-      <ul id="mobileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg p-4 space-y-2 z-50">
+      <ul id="mobileMenu" class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg p-4 space-y-2 z-50">
         <li><a href="#" class="block text-gray-700 hover:text-cyan-500">Home</a></li>
         <li><a href="#" class="block text-gray-700 hover:text-cyan-500">About</a></li>
         <li><a href="#" class="block text-gray-700 hover:text-cyan-500">Service</a></li>
@@ -60,24 +59,33 @@
       <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Contact</a></li>
     </ul>
   </nav>
+  </div>
 
   <!-- Hero Section -->
-  <header class="w-full pt-28 px-6 md:px-20 pb-10 bg-gradient-to-br from-cyan-300 via-sky-100 to-cyan-200 flex flex-col md:flex-row items-center gap-10 overflow-hidden">
-    <div class="flex-1 text-white">
-      <h1 class="text-4xl font-bold mb-4">Solusi teknologi <br />
-        yang <span class="text-indigo-700">inovatif</span><br />
-        untuk bisnis Anda</h1>
-      <p class="mb-6">Me-Tech hadir memberikan solusi teknologi yang inovatif untuk bisnis Anda.</p>
-      <a href="#" class="inline-block bg-gradient-to-r from-cyan-400 to-cyan-600 text-white font-bold px-6 py-3 rounded-lg shadow-md">Hubungi Kami</a>
-    </div>
-    <div class="flex-1 flex justify-center">
-      <img src="/image/laptop.png" alt="Mockup Phone" class="h-72 rotate-[-20deg] mt-4" />
-    </div>
-  </header>
+<header class="min-h-screen w-full pt-28 px-6 md:px-20 pb-10 bg-gradient-to-br from-cyan-300 via-sky-100 to-cyan-200 flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden">
+  <!-- Text Section -->
+  <div class="flex-1 text-white text-center md:text-left">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+      Solusi teknologi <br />
+      yang <span class="text-indigo-700">inovatif</span><br />
+      untuk bisnis Anda
+    </h1>
+    <p class="mb-6 text-sm md:text-base">
+      Me-Tech hadir memberikan solusi teknologi yang inovatif untuk bisnis Anda.
+    </p>
+    <a href="#"
+       class="inline-block bg-gradient-to-r from-cyan-400 to-cyan-600 text-white font-bold px-6 py-3 rounded-lg shadow-md hover:opacity-90 transition">
+      Hubungi Kami
+    </a>
+  </div>
+
+  <div class="relative flex-1 flex justify-center items-center w-full max-w-[600px] mx-auto md:mx-0">
+    <img src="/image/laptop.png" alt="Mockup laptop" class="w-[280px] md:w-[500px] h-auto z-0" />
+  </div>
+</header>
 
   <!--About Us-->
   <h1 class="text-[2.5rem] italic text-center md:text-left mt-20 md:ml-20 text-[#01B3BF]">About Us</h1>
-
   <section class="flex flex-col-reverse md:flex-row items-center justify-center gap-8 p-6 md:p-12">
         <div class="w-full md:w-1/2 flex justify-center">
       <img src="/image/about.png" alt="Me-Tech Display" class="max-w-[500px] w-full h-auto" />
@@ -130,11 +138,9 @@
   </section>
 
   <section class="flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-r from-[#dffffd] to-[#c3fffc] rounded-[20px] p-6 md:p-10 gap-8 w-full max-w-[1200px] mx-auto mt-8">
-  <!-- Kiri: Features List -->
   <div class="w-full md:w-1/2 flex flex-col items-center md:items-end">
   <h2 class="text-[#00a6a6] mb-5 text-[24px] font-semibold text-center md:text-left">Features</h2>
     <div class="space-y-6">
-      <!-- Item 1 -->
       <div class="flex items-center justify-center md:justify-end gap-4">
         <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
           <p>Menyediakan platform yang berkualitas,</p>
@@ -142,8 +148,6 @@
         </div>
         <img src="/image/f1.png" class="w-7 h-7" alt="icon1">
       </div>
-
-      <!-- Item 2 -->
       <div class="flex items-center justify-center md:justify-end gap-4">
         <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
           <p>Membuka peluang pengembangan usaha (entrepreneurship),</p>
@@ -151,8 +155,6 @@
         </div>
         <img src="/image/f2.png" class="w-7 h-7" alt="icon2">
       </div>
-
-      <!-- Item 3 -->
       <div class="flex items-center justify-center md:justify-end gap-4">
         <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
           <p>Membantu para pelaku usaha untuk meningkatkan</p>
@@ -162,8 +164,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Kanan: Gambar + Teks -->
   <div class="w-full md:w-1/2 text-center flex flex-col items-center">
     <p class="text-[#00a6a6] font-bold mb-5 text-[16px] leading-relaxed text-center">
       Dapatkan Solusi Kebutuhan Teknologi<br />
@@ -171,10 +171,10 @@
     </p>
     <img src="/image/pc.png" alt="Device Mockup" class="w-full max-w-[350px] h-auto" />
   </div>
-</section>
+  </section>
   
-<section class="px-6 py-16 bg-gradient-to-tr from-cyan-50 to-transparent">
-  <div class="w-full max-w-4xl mx-auto">
+  <section class="px-6 py-16 bg-gradient-to-tr from-cyan-50 to-transparent">
+    <div class="w-full max-w-4xl mx-auto">
     
     <div class="mb-10">
       <h2 class="text-3xl font-semibold text-cyan-600 mb-1">Our Services</h2>
@@ -214,8 +214,8 @@
         </div>
       </div>
     </div>
-  </div> 
-<section class="py-10 px-4 bg-white">
+    </div> 
+  <section class="py-10 px-4 bg-white">
   <div class="text-center mb-6">
     <h2 class="text-[#01B3BF] text-xl font-semibold uppercase">Our Clients</h2>
   </div>
@@ -246,9 +246,9 @@
     </div>
   </div>
 </section>
-
-
-   <section class="bg-cyan-50 text-center py-16 px-4 rounded-md">
+  
+  <section class="bg-cyan-60 text-center py-16 px-4 rounded-md">
+    <div class="px-6">
     <h2 class="text-2xl font-bold text-cyan-600 mb-2">Our Team</h2>
     <p class="text-sm text-gray-600 mb-10">Menyediakan platform yang berkualitas, komitmen dan terjamin.</p>
     <div class="flex flex-wrap justify-center gap-8">
@@ -262,17 +262,16 @@
           <p class="text-sm text-gray-600 mt-1">Executive</p>
         </div>
       </div>
- 
       <div class="relative bg-white shadow-lg rounded-xl w-[340px] h-[120px] flex items-center pl-20 pr-6">
         <div class="absolute left-[-30px] w-[100px] h-[100px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
           <img src="/image/org.png" class="w-[90px] h-[90px] rounded-full object-cover" />
         </div>
+
         <div class="text-left ml-6">
           <h4 class="text-cyan-600 font-semibold text-lg">Didin</h4>
           <p class="text-sm text-gray-600 mt-1">CO Founder</p>
         </div>
       </div>
-  
       <div class="relative bg-white shadow-lg rounded-xl w-[340px] h-[120px] flex items-center pl-20 pr-6">
         <div class="absolute left-[-30px] w-[100px] h-[100px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
           <img src="/image/org.png" class="w-[90px] h-[90px] rounded-full object-cover" />
@@ -283,7 +282,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+    </section>
+  
 
   <footer class="bg-gradient-to-t from-[#DFFFFD] to-white text-gray-700 pt-10 pb-4 px-6">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
