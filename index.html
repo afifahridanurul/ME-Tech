@@ -10,41 +10,54 @@
       document.querySelector("nav ul").classList.toggle("hidden");
     }
   </script>
-  <style>
-        @keyframes slideLeft {
-            0% {
-                transform: translateX(0%);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .animate-slide {
-            animation: slideLeft 30s linear infinite;
+   <style>
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
       }
-</style>
+      100% {
+        transform: translateX(-50%);
+      }
+    }
 
+    .animate-slide {
+      animation: slide 25s linear infinite;
+    }
+  </style>
 </head>
-<body class="font-sans bg-white">
+<body class="font-sans bg-transparent min-h-screen overflow-x-hidden">
 
-  <nav class="fixed top-0 left-0 w-full z-50 bg-white/30 backdrop-blur-sm px-8 py-4 flex flex-wrap justify-between items-center">
+
+ <nav class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-sm px-8 py-4 flex justify-between items-center">
     <div class="flex items-center gap-4">
       <img src="/image/lg.png" alt="logo" class="w-24" />
-      <button class="text-cyan-600 text-xl lg:hidden" onclick="toggleMenu()">☰</button>
     </div>
+
+    <div class="relative lg:hidden">
+      <button onclick="toggleMenu()" class="text-cyan-600 text-2xl focus:outline-none">☰</button>
+
+      <ul id="mobileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg p-4 space-y-2 z-50">
+        <li><a href="#home" class="block text-gray-700 hover:text-cyan-500">Home</a></li>
+        <li><a href="#about" class="block text-gray-700 hover:text-cyan-500">About</a></li>
+        <li><a href="#ourservices" class="block text-gray-700 hover:text-cyan-500">Service</a></li>
+        <li><a href="#phortofolio" class="block text-gray-700 hover:text-cyan-500">Portfolio</a></li>
+        <li><a href="#ourteam" class="block text-gray-700 hover:text-cyan-500">Team</a></li>
+        <li><a href="#contact" class="block text-gray-700 hover:text-cyan-500">Contact</a></li>
+      </ul>
+    </div>
+
     <ul class="hidden lg:flex items-center gap-6 font-semibold">
-      <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Home</a></li>
-      <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">About</a></li>
-      <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Service</a></li>
-      <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Portfolio</a></li>
-      <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Team</a></li>
-      <li><a href="#" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Contact</a></li>
-    </ul>
-  </nav>
+      <li><a href="#home" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Home</a></li>
+      <li><a href="#about" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">About</a></li>
+      <li><a href="#ourservices" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Service</a></li>
+      <li><a href="#phortofolio" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Portfolio</a></li>
+      <li><a href="#ourteam" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Team</a></li>
+      <li><a href="#contact" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Contact</a></li>
+    </ul>
+</nav>
+
  
-  <header class="pt-28 px-6 md:px-20 pb-10 bg-gradient-to-br from-cyan-300 via-sky-100 to-cyan-200 flex flex-col md:flex-row items-center gap-10">
+  <header id="home" class="h-screen pt-28 px-6 md:px-20 pb-10 bg-gradient-to-br from-cyan-300 via-sky-100 to-cyan-200 flex flex-col md:flex-row items-center gap-10">
     <div class="flex-1 text-white">
       <h1 class="text-4xl font-bold mb-4">
         Solusi teknologi <br />
@@ -59,9 +72,9 @@
     </div>
   </header>
 
-  <h1 class="text-[2.5rem] italic text-center md:text-left mt-20 md:ml-20 text-[#01B3BF]">About Us</h1>
-
-  <section class="flex flex-col-reverse md:flex-row items-center justify-center gap-8 p-6 md:p-12">
+  
+  <h1 class="text-[2.5rem] italic text-left md:text-left mt-10 md:ml-10 pl-4 pt-2 text-[#01B3BF]">About Us</h1>
+  <section id="about" class="h-screen flex flex-col-reverse md:flex-row items-center justify-center gap-8 p-6 md:p-12">
         <div class="w-full md:w-1/2 flex justify-center">
       <img src="/image/about.png" alt="Me-Tech Display" class="max-w-[500px] w-full h-auto" />
     </div>
@@ -76,7 +89,8 @@
     </div>
   </section>
 
-  <section class="relative py-10 overflow-hidden">
+  
+  <section id="philosophy" class="h-screen relative py-10 overflow-hidden">
     <div class="relative max-w-[1200px] mx-auto px-6">
       <h2 class="text-[#01B3BF] text-2xl mb-10 text-left font-semibold">Our Philosophy</h2>
       <div class="flex flex-col md:flex-row flex-wrap gap-6 justify-center">
@@ -111,33 +125,50 @@
     </div>
   </section>
 
-  <section class="flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-r from-[#dffffd] to-[#c3fffc] rounded-[20px] p-6 md:p-10 gap-8 w-full max-w-[1200px] mx-auto mt-8">
-    <div class="w-full md:w-1/2">
-      <h2 class="text-[#00a6a6] mb-5 text-[24px] font-semibold text-center md:text-left">Features</h2>
-      <ul class="space-y-4">
-        <li class="flex flex-col md:flex-row-reverse md:items-center md:justify-end gap-3 text-[16px] text-[#19656B]">
-          <img src="/image/f1.png" class="w-6 h-6" alt="icon1">
-          <span>Menyediakan platform yang berkualitas, komitmen dan terjamin.</span>
-        </li>
-        <li class="flex flex-col md:flex-row-reverse md:items-center md:justify-end gap-3 text-[16px] text-[#19656B]">
-          <img src="/image/f2.png" class="w-6 h-6" alt="icon2">
-          <span>Membuka peluang pengembangan usaha (entrepreneurship), yang terintegrasi dengan layanan digital (online).</span>
-        </li>
-        <li class="flex flex-col md:flex-row-reverse md:items-center md:justify-end gap-3 text-[16px] text-[#19656B]">
-          <img src="/image/f3.png" class="w-6 h-6" alt="icon3">
-          <span>Membantu para pelaku usaha untuk meningkatkan peluang positif dari segi keuntungan material.</span>
-        </li>
-      </ul>
-    </div>
-    <div class="w-full md:w-1/2 text-center">
-      <p class="text-[#00a6a6] font-bold mb-5 text-[16px] leading-relaxed">
-        Dapatkan Solusi Kebutuhan Teknologi <br/> Bisnis Anda Bersama Kami
-      </p>
-      <img src="/image/pc.png" alt="Device Mockup" class="w-full max-w-[350px] h-auto mx-auto" />
-    </div>
-  </section>
+
+  <section id="features" class="h-screen flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-r from-[#dffffd] to-[#c3fffc] rounded-[20px] p-6 md:p-10 gap-8 w-full max-w-[1200px] mx-auto mt-8">
   
-<section class="px-6 py-16 bg-gradient-to-tr from-cyan-50 to-transparent">
+  <div class="w-full md:w-1/2 flex flex-col items-center md:items-end">
+  <h2 class="text-[#00a6a6] mb-5 text-[24px] font-semibold text-center md:text-left">Features</h2>
+    <div class="space-y-6">
+     
+      <div class="flex items-center justify-center md:justify-end gap-4">
+        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
+          <p>Menyediakan platform yang berkualitas,</p>
+          <p>komitmen dan terjamin.</p>
+        </div>
+        <img src="/image/f1.png" class="w-7 h-7" alt="icon1">
+      </div>
+
+      <div class="flex items-center justify-center md:justify-end gap-4">
+        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
+          <p>Membuka peluang pengembangan usaha (entrepreneurship),</p>
+          <p>yang terintegrasi dengan layanan digital (online).</p>
+        </div>
+        <img src="/image/f2.png" class="w-7 h-7" alt="icon2">
+      </div>
+
+      <div class="flex items-center justify-center md:justify-end gap-4">
+        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
+          <p>Membantu para pelaku usaha untuk meningkatkan</p>
+          <p>peluang positif dari segi keuntungan material.</p>
+        </div>
+        <img src="/image/f3.png" class="w-7 h-7" alt="icon3">
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 text-center flex flex-col items-center">
+    <p class="text-[#00a6a6] font-bold mb-5 text-[16px] leading-relaxed text-center">
+      Dapatkan Solusi Kebutuhan Teknologi<br />
+      Bisnis Anda Bersama Kami
+    </p>
+    <img src="/image/pc.png" alt="Device Mockup" class="w-full max-w-[350px] h-auto" />
+  </div>
+</section>
+
+  
+<section id="ourservices" class="px-6 py-16 bg-gradient-to-tr from-cyan-50 to-transparent">
   <div class="w-full max-w-4xl mx-auto">
     
     <div class="mb-10">
@@ -185,43 +216,82 @@
 
     </div>
   </div>
-<section class="py-10 px-4 bg-white">
-  <div class="text-center mb-6">
-    <h2 class="text-[#01B3BF] text-xl font-semibold uppercase">Our Clients</h2>
-  </div>
+  </section>
+  
+  
+   <section id="ourclient" class="h-screen py-10 px-4 bg-white">
+    <div class="text-center mb-6">
+      <h2 class="text-[#01B3BF] text-xl font-semibold uppercase">Our Clients</h2>
+    </div>
 
-  <div class="overflow-hidden w-full">
-    <div class="flex animate-slide w-[200%]">
-      <div class="flex gap-10 items-center w-1/2 justify-center">
-        <img src="/image/suzuku.png" class="h-16 object-contain" />
-        <img src="/image/paster.png" class="h-16 object-contain" />
-        <img src="/image/bri.png" class="h-16 object-contain" />
-        <img src="/image/hot.png" class="h-16 object-contain" />
-        <img src="/image/sembilan.png" class="h-16 object-contain" />
-        <img src="/image/belibis.png" class="h-16 object-contain" />
-        <img src="/image/arnes.png" class="h-16 object-contain" />
-        <img src="/image/dunia.png" class="h-16 object-contain" />
-      </div>
-      
-      <div class="flex gap-10 items-center w-1/2 justify-center">
-        <img src="/image/suzuku.png" class="h-16 object-contain" />
-        <img src="/image/paster.png" class="h-16 object-contain" />
-        <img src="/image/bri.png" class="h-16 object-contain" />
-        <img src="/image/hot.png" class="h-16 object-contain" />
-        <img src="/image/sembilan.png" class="h-16 object-contain" />
-        <img src="/image/belibis.png" class="h-16 object-contain" />
-        <img src="/image/arnes.png" class="h-16 object-contain" />
-        <img src="/image/dunia.png" class="h-16 object-contain" />
+    <div class="overflow-hidden w-full">
+      <div class="flex animate-slide w-[200%]">
+        
+        <div class="flex gap-10 items-center w-1/2 justify-center">
+          <img src="/image/suzuku.png" class="h-16 object-contain" />
+          <img src="/image/paster.png" class="h-16 object-contain" />
+          <img src="/image/bri.png" class="h-16 object-contain" />
+          <img src="/image/hot.png" class="h-16 object-contain" />
+          <img src="/image/sembilan.png" class="h-16 object-contain" />
+          <img src="/image/belibis.png" class="h-16 object-contain" />
+          <img src="/image/arnes.png" class="h-16 object-contain" />
+          <img src="/image/dunia.png" class="h-16 object-contain" />
+        </div>
+
+        <div class="flex gap-10 items-center w-1/2 justify-center">
+          <img src="/image/suzuku.png" class="h-16 object-contain" />
+          <img src="/image/paster.png" class="h-16 object-contain" />
+          <img src="/image/bri.png" class="h-16 object-contain" />
+          <img src="/image/hot.png" class="h-16 object-contain" />
+          <img src="/image/sembilan.png" class="h-16 object-contain" />
+          <img src="/image/belibis.png" class="h-16 object-contain" />
+          <img src="/image/arnes.png" class="h-16 object-contain" />
+          <img src="/image/dunia.png" class="h-16 object-contain" />
+        </div>
       </div>
     </div>
+  </section>
+
+  
+  <div class="px-8">
+  <section id="phortofolio" class="h-screen max-w-6xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-10">
+      
+      <div class="w-full md:w-1/2 flex justify-center">
+        <img src="/image/hp.png" alt="Mockup App" class="w-60 md:w-72">
+      </div>
+
+      <div class="w-full md:w-1/2">
+        <h2 class="text-cyan-700 text-2xl font-semibold mb-1">Our Portfolio</h2>
+        <p class="text-sm text-gray-600 mb-6">Menyediakan platform yang berkualitas, komitmen dan terjamin.</p>
+
+        <div class="flex space-x-6 border-b mb-6">
+          <button class="text-cyan-700 font-semibold border-b-2 border-cyan-700 pb-1">Aplikasi</button>
+          <button class="text-gray-400 font-medium">Website</button>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4 items-center">
+          <img src="/image/suzuku.png" alt="My Suzuki" class="h-6 md:h-8">
+          <img src="/image/paster.png" alt="Pasteur Trans" class="h-6 md:h-8">
+          <img src="/image/dunia.png" alt="Dunia Halal" class="h-6 md:h-8">
+          <img src="/image/hot.png" alt="Hot Jobs" class="h-6 md:h-8">
+          <img src="/image/arnes.png" alt="Arnes Shuttle" class="h-6 md:h-8">
+          <img src="/image/sembilan.png" alt="Sembilan Kita" class="h-6 md:h-8">
+          <img src="/image/hot.png" alt="Hot Jobs" class="h-6 md:h-8">
+          <img src="/image/arnes.png" alt="Arnes Shuttle" class="h-6 md:h-8">
+          <img src="/image/sembilan.png" alt="Sembilan Kita" class="h-6 md:h-8">
+        </div>
+      </div>
+    </div>
+  </section>
   </div>
-</section>
-
-
-   <section class="bg-cyan-50 text-center py-16 px-4 rounded-md">
+  
+  
+   <section id="ourteam" class="h-screen bg-cyan-60 text-center py-16 px-6 rounded-md">
+    <div class="px-8">
     <h2 class="text-2xl font-bold text-cyan-600 mb-2">Our Team</h2>
     <p class="text-sm text-gray-600 mb-10">Menyediakan platform yang berkualitas, komitmen dan terjamin.</p>
-    <div class="flex flex-wrap justify-center gap-8">
+    <div class="flex flex-wrap justify-center gap-10">
    
       <div class="relative bg-white shadow-lg rounded-xl w-[340px] h-[120px] flex items-center pl-20 pr-6">
         <div class="absolute left-[-30px] w-[100px] h-[100px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
@@ -253,9 +323,12 @@
         </div>
       </div>
     </div>
+    </div>
   </section>
+  
 
-  <footer class="bg-gradient-to-t from-[#DFFFFD] to-white text-gray-700 pt-10 pb-4 px-6">
+  <div px-8>
+  <footer class="h-screen bg-gradient-to-t from-[#DFFFFD] to-white text-gray-700 pt-10 pb-4 px-6">
   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
     <div>
       <p class="mb-4">
@@ -277,14 +350,14 @@
     </div>
 
     <div>
-      <h3 class="font-bold text-[#01B3BF] mb-2">CONTACT US</h3>
+      <h3 id="contact" class="font-bold text-[#01B3BF] mb-2">CONTACT US</h3>
       <p>Jln. Kawaluyaan Indah XXI no.8<br />Kota Bandung – Jawa Barat</p>
       <p class="mt-2"><strong>Phone</strong> : +62 878-2323-7339</p>
       <p><strong>Email</strong> : info@me-tech.id</p>
     </div>
 
     <div>
-      <h3 class="font-bold text-[#01B3BF] mb-2">SOCIAL MEDIA</h3>
+      <h3 id="contact" class="font-bold text-[#01B3BF] mb-2">SOCIAL MEDIA</h3>
       <div class="flex space-x-4">
         <a href="#"><img src="/image/fb.png" alt="Facebook" class="h-6" /></a>
         <a href="#"><img src="/image/ig.png" alt="Instagram" class="h-6" /></a>
@@ -298,6 +371,7 @@
 </div>
 
 </footer>
+</div>
 
 </body>
 </html>
