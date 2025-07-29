@@ -1,377 +1,791 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Me-Tech</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    function toggleMenu() {
-      document.querySelector("nav ul").classList.toggle("hidden");
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    .marquee-container {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
     }
-  </script>
-   <style>
-    @keyframes slide {
+
+    .marquee-track {
+      display: inline-flex;
+      width: max-content;
+      animation: marquee 50s linear infinite;
+      gap: 2.5rem;
+    }
+
+    .marquee-track img {
+      height: 4rem;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
       0% {
-        transform: translateX(0);
+        transform: translateX(0%);
       }
+
       100% {
         transform: translateX(-50%);
       }
     }
 
-    .animate-slide {
-      animation: slide 25s linear infinite;
+    /service/ .service-btn.active {
+      background-color: #ecfeff;
+      color: #06b6d4;
+      box-shadow: 0px 12px 20px rgba(6, 182, 212, 0.3);
     }
   </style>
+
 </head>
-<body class="font-sans bg-transparent min-h-screen overflow-x-hidden">
 
+<body class="font-sans bg-transparent overflow-x-hidden">
 
- <nav class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-sm px-8 py-4 flex justify-between items-center">
-    <div class="flex items-center gap-4">
-      <img src="/image/lg.png" alt="logo" class="w-24" />
-    </div>
+  <div class="px-8">
+    <nav class="fixed top-0 left-0 w-full z-50">
+      <div class="relative bg-cover bg-center px-6 py-4 flex justify-between items-center">
+        <div class="absolute inset-0 bg-white "></div>
+        <div class="relative flex items-center gap-4 z-10">
+          <img src="/image/lg.png" alt="logo" class="w-24" />
+        </div>
+        <div class="relative lg:hidden z-10">
+          <button onclick="toggleMenu()" class="text-cyan-600 text-2xl focus:outline-none">☰</button>
 
-    <div class="relative lg:hidden">
-      <button onclick="toggleMenu()" class="text-cyan-600 text-2xl focus:outline-none">☰</button>
+          <ul id="mobileMenu"
+            class="hidden absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg p-4 space-y-2 z-50">
+            <li><a href="#home" class="block !text-sky-500 hover:!text-sky-700">Home</a></li>
+            <li><a href="#about" class="block !text-sky-500 hover:!text-sky-700">About</a></li>
+            <li><a href="#services" class="block !text-sky-500 hover:!text-sky-700">Service</a></li>
+            <li><a href="#portfolio" class="block !text-sky-500 hover:!text-sky-700">Portfolio</a></li>
+            <li><a href="#team" class="block !text-sky-500 hover:!text-sky-700">Team</a></li>
+            <li><a href="#contact" class="block !text-sky-500 hover:!text-sky-700">Contact</a></li>
+          </ul>
+        </div>
 
-      <ul id="mobileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg p-4 space-y-2 z-50">
-        <li><a href="#home" class="block text-gray-700 hover:text-cyan-500">Home</a></li>
-        <li><a href="#about" class="block text-gray-700 hover:text-cyan-500">About</a></li>
-        <li><a href="#ourservices" class="block text-gray-700 hover:text-cyan-500">Service</a></li>
-        <li><a href="#phortofolio" class="block text-gray-700 hover:text-cyan-500">Portfolio</a></li>
-        <li><a href="#ourteam" class="block text-gray-700 hover:text-cyan-500">Team</a></li>
-        <li><a href="#contact" class="block text-gray-700 hover:text-cyan-500">Contact</a></li>
-      </ul>
-    </div>
+        <ul class="relative hidden lg:flex items-center gap-6 font-semibold z-10">
+          <li><a href="#home"
+              class="!text-sky-500 hover:!text-sky-700 border-b border-transparent hover:border-sky-300">Home</a></li>
+          <li><a href="#about"
+              class="!text-sky-500 hover:!text-sky-700 border-b border-transparent hover:border-sky-300">About</a></li>
+          <li><a href="#services"
+              class="!text-sky-500 hover:!text-sky-700 border-b border-transparent hover:border-sky-300">Service</a>
+          </li>
+          <li><a href="#portfolio"
+              class="!text-sky-500 hover:!text-sky-700 border-b border-transparent hover:border-sky-300">Portfolio</a>
+          </li>
+          <li><a href="#team"
+              class="!text-sky-500 hover:!text-sky-700 border-b border-transparent hover:border-sky-300">Team</a></li>
+          <li><a href="#contact"
+              class="!text-sky-500 hover:!text-sky-700 border-b border-transparent hover:border-sky-300">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-    <ul class="hidden lg:flex items-center gap-6 font-semibold">
-      <li><a href="#home" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Home</a></li>
-      <li><a href="#about" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">About</a></li>
-      <li><a href="#ourservices" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Service</a></li>
-      <li><a href="#phortofolio" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Portfolio</a></li>
-      <li><a href="#ourteam" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Team</a></li>
-      <li><a href="#contact" class="text-white hover:text-cyan-400 border-b border-transparent hover:border-cyan-300">Contact</a></li>
-    </ul>
-</nav>
-
- 
-  <header id="home" class="h-screen pt-28 px-6 md:px-20 pb-10 bg-gradient-to-br from-cyan-300 via-sky-100 to-cyan-200 flex flex-col md:flex-row items-center gap-10">
-    <div class="flex-1 text-white">
-      <h1 class="text-4xl font-bold mb-4">
+  <header id="home"
+    class="relative min-h-screen w-full pt-28 px-6 md:px-20 pb-10 bg-cover bg-center flex flex-col md:flex-row items-center justify-between gap-10 overflow-hidden"
+    style="background-image: url('/image/bg.png');">
+    <div class="absolute inset-0 bg-black/10 backdrop-blur-[2px] z-0"></div>
+    <div class="flex-1 text-white text-center md:text-left z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">
         Solusi teknologi <br />
-        yang <span class="text-indigo-700">inovatif</span><br />
+        yang <span class="text-[] font-extrabold">inovatif</span><br />
         untuk bisnis Anda
       </h1>
-      <p class="mb-6">Me-Tech hadir memberikan solusi teknologi yang inovatif untuk bisnis Anda.</p>
-      <a href="#" class="inline-block bg-gradient-to-r from-cyan-400 to-cyan-600 text-white font-bold px-6 py-3 rounded-lg shadow-md">Hubungi Kami</a>
+
+
+      <p class="mb-6 text-sm md:text-base text-white/90 max-w-md">
+        Me-Tech hadir memberikan solusi teknologi yang inovatif untuk bisnis Anda Me-Tech hadir
+      </p>
+      <a href="https://wa.me/6287823237339" target="_blank" class=" inline-block px-4 py-2 text-white font-bold text-base rounded-xl bg-[#49E6DC] border border-white
+        shadow-[0_0_12px_#49E6DC] transition hover:opacity-90">
+        Hubungi Kami
+      </a>
     </div>
-    <div class="flex-1 flex justify-center">
-      <img src="/image/laptop.png" alt="Mockup Phone" class="h-72 rotate-[-20deg] mt-4" />
+
+    <div class="relative flex-1 flex justify-center items-center w-full md:w-[1000px] z-10">
+      <img src="/image/laptop.png" alt="Mockup laptop" class="w-[400px] md:w-[494px] h-auto z-0 translate-x-[100px]" />
+      <img src="/image/hp.png" alt="Mockup hp"
+        class="absolute w-[500px] md:w-[600px] -rotate-[5deg] right-[40%] top-[10%] z-10 translate-x-[100px]"   />
     </div>
+
+
+    <a href="#about" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+      <div class="w-5 h-5 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition">
+        <svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </a>
   </header>
 
-  
-  <h1 class="text-[2.5rem] italic text-left md:text-left mt-10 md:ml-10 pl-4 pt-2 text-[#01B3BF]">About Us</h1>
-  <section id="about" class="h-screen flex flex-col-reverse md:flex-row items-center justify-center gap-8 p-6 md:p-12">
-        <div class="w-full md:w-1/2 flex justify-center">
-      <img src="/image/about.png" alt="Me-Tech Display" class="max-w-[500px] w-full h-auto" />
+  <section id="about" class="h-[90vh] bg-white px-4 py-16 flex flex-col items-center justify-center">
+    <div class="max-w-6xl w-full">
+
+      <h1 class="text-[2rem] md:text-[3rem] font-semibold text-[#01B3BF] mb-10 text-left">
+        About US
+      </h1>
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+
+        <div class="w-full md:w-1/2 flex justify-center relative">
+          <div
+            class="absolute w-[300px] h-[300px] rounded-full bg-gradient-radial from-[#51E2C0] to-[#A2FFE9] left-1/2 -translate-x-1/2 -top-8 z-0">
+          </div>
+          <img src="/image/about.png" alt="Me-Tech Display"
+            class="w-full max-w-[550px] h-auto object-contain relative z-10">
+        </div>
+
+        <div class="w-full md:w-1/2 bg-white rounded-xl p-6 md:p-8 text-black">
+          <h2 class="text-black text-2xl md:text-[42px] mb-4 font-bold">
+            Who We Are
+          </h2>
+          <p class="text-[18px] md:text-[19px] leading-relaxed text-justify">
+            <strong>Me-Tech Menyajikan Solusi IT dan Teknologi Terpercaya Untuk Bisnis Anda</strong>.
+            <br><br>
+            <strong class="text-[#13AACE]">Me-Tech</strong> adalah mitra bisnis pilihan bagi banyak perusahaan terkemuka
+            di Indonesia, UKM dan penantang teknologi. Kami membantu meningkatkan bisnis melalui pengembangan perangkat
+            lunak khusus, desain produk, dan layanan konsultasi IT.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="relative py-20 px-4 bg-white">
+
+    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-[#F5F5F5] z-0"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto">
+
+      <div class="text-center mb-10">
+        <h2 class="text-[#01B3BF] text-3xl md:text-4xl font-semibold">Our Philosophy</h2>
+      </div>
+
+      <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden">
+
+        <div class="flex-1 text-center p-6 flex flex-col items-center">
+          <img src="/image/philosophy/p1.png" alt="Komitmen Me-Tech" class="mb-4 h-12 w-12" />
+          <h3 class="font-bold mb-2">Komitmen Me-Tech</h3>
+          <p class="text-sm text-gray-700">Me-Tech mengejar keberlanjutan bisnis dengan tekad kuat, sambil tetap menjaga
+            kepercayaan</p>
+        </div>
+
+        <div class="hidden md:flex items-center">
+          <div class="w-[2px] h-16 bg-[#01B3BF]"></div>
+        </div>
+
+        <div class="flex-1 text-center p-6 flex flex-col items-center">
+          <img src="/image/philosophy/p2.png" alt="Sinergi Me-Tech" class="mb-4 h-12 w-12" />
+          <h3 class="font-bold mb-2">Sinergi Me-Tech Bersama</h3>
+          <p class="text-sm text-gray-700">Me-Tech, dengan tulus dan tekad, berkomitmen untuk mengoptimalkan kualitas
+          </p>
+        </div>
+
+        <div class="hidden md:flex items-center">
+          <div class="w-[2px] h-16 bg-[#01B3BF]"></div>
+        </div>
+
+        <div class="flex-1 text-center p-6 flex flex-col items-center">
+          <img src="/image/philosophy/p3.png" alt="Komitmen Me-Tech Setiap" class="mb-4 h-12 w-12" />
+          <h3 class="font-bold mb-2">Komitmen Me-Tech Setiap</h3>
+          <p class="text-sm text-gray-700">Kami di Me-Tech menjadikan kepuasan klien sebagai prioritas utama dalam
+            setiap kerjasama</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="features"
+    class="h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-t from-[#F0F0F0] to-[#F5F5F5] px-4 py-16 md:py-24 gap-10 md:gap-0">
+
+    <div class="w-full md:w-1/2 flex flex-col items-center md:items-end text-center md:text-right">
+      <h2 class="text-black mb-5 text-xl md:text-3xl font-semibold">
+        Features
+      </h2>
+      <div class="space-y-6">
+        <div class="flex items-center justify-center md:justify-end gap-4">
+          <div class="text-[#383838] text-[17px] md:text-[18px] leading-relaxed">
+            <p>Menyediakan platform yang berkualitas,</p>
+            <p>komitmen dan terjamin.</p>
+          </div>
+          <img src="/image/features/f1.png" class="w-6 h-6 md:w-7 md:h-7" alt="icon1" />
+        </div>
+        <div class="flex items-center justify-center md:justify-end gap-4">
+          <div class="text-[#383838] text-[17px] md:text-[18px] leading-relaxed">
+            <p>Membuka peluang pengembangan usaha (entrepreneurship),</p>
+            <p>yang terintegrasi dengan layanan digital (online).</p>
+          </div>
+          <img src="/image/features/f2.png" class="w-6 h-6 md:w-7 md:h-7" alt="icon2" />
+        </div>
+        <div class="flex items-center justify-center md:justify-end gap-4">
+          <div class="text-[#383838] text-[17px] md:text-[18px] leading-relaxed">
+            <p>Membantu para pelaku usaha untuk meningkatkan</p>
+            <p>peluang positif dari segi keuntungan material.</p>
+          </div>
+          <img src="/image/features/f3.png" class="w-6 h-6 md:w-7 md:h-7" alt="icon3" />
+        </div>
+      </div>
     </div>
 
-    <div class="w-full md:w-1/2 bg-[#F1FEFB] rounded-[15px] p-6 text-[#19656B] text-justify">
-      <h2 class="text-[#01B3BF] text-[24px] mb-[15px] font-semibold">Who We Are</h2>
-      <p class="text-[16px] leading-[1.6]">
-        Me-Tech Menyediakan Solusi IT dan Teknologi Terpercaya Untuk Bisnis Anda.
-        <br><br>
-        <strong>Me-Tech</strong> adalah mitra bisnis pilihan bagi banyak perusahaan ternama di Indonesia, UKM dan penyedia teknologi. Kami membantu meningkatkan bisnis melalui pengembangan perangkat lunak khusus, desain produk, dan layanan konsultasi IT.
+    <div class="w-full md:w-1/2 flex flex-col items-center text-center">
+      <p class="text-[#383838] font-bold mb-5 text-[17px] md:text-[18px] leading-relaxed">
+        Dapatkan Solusi Kebutuhan Teknologi<br />
+        Bisnis Anda Bersama Kami
       </p>
-    </div>
-  </section>
-
-  
-  <section id="philosophy" class="h-screen relative py-10 overflow-hidden">
-    <div class="relative max-w-[1200px] mx-auto px-6">
-      <h2 class="text-[#01B3BF] text-2xl mb-10 text-left font-semibold">Our Philosophy</h2>
-      <div class="flex flex-col md:flex-row flex-wrap gap-6 justify-center">
-        <div class="bg-gradient-to-b from-[#DFFFFE] to-[#3CDBD4] rounded-[15px] p-5 w-full md:max-w-[350px] text-left text-[#f2fafc] transition-transform hover:-translate-y-1">
-          <div class="bg-[#F0FFFE] rounded-[10px] p-[10px] mb-[15px] flex justify-center items-center h-[160px]">
-            <img src="/image/p1.png" alt="Komitmen Kerjasama" class="max-h-full max-w-full object-contain" />
-          </div>
-          <h3 class="text-[1.1rem] mb-[10px] font-semibold">Komitmen Me-Tech dalam Setiap Kerjasama</h3>
-          <p class="text-[0.95rem] leading-[1.5]">
-            Kami di Me-Tech menjadikan kepuasan klien sebagai prioritas utama dalam setiap kerjasama, dengan komitmen untuk memberikan layanan terbaik dan membangun hubungan yang langgeng.
-          </p>
-        </div>
-        <div class="bg-gradient-to-b from-[#DFFFFE] to-[#3CDBD4] rounded-[15px] p-5 w-full md:max-w-[350px] text-left text-[#f2fafc] transition-transform hover:-translate-y-1">
-          <div class="bg-[#F0FFFE] rounded-[10px] p-[10px] mb-[15px] flex justify-center items-center h-[160px]">
-            <img src="/image/p2.png" alt="Sinergi Stakeholder" class="max-h-full max-w-full object-contain" />
-          </div>
-          <h3 class="text-[1.1rem] mb-[10px] font-semibold">Sinergi Me-Tech Bersama Stakeholder</h3>
-          <p class="text-[0.95rem] leading-[1.5]">
-            Me-Tech, dengan tulus dan tekad, berkomitmen untuk mengoptimalkan kualitas dan performa melalui sinergi yang kuat antara semua pihak terlibat.
-          </p>
-        </div>
-        <div class="bg-gradient-to-b from-[#DFFFFE] to-[#3CDBD4] rounded-[15px] p-5 w-full md:max-w-[350px] text-left text-[#f2fafc] transition-transform hover:-translate-y-1">
-          <div class="bg-[#F0FFFE] rounded-[10px] p-[10px] mb-[15px] flex justify-center items-center h-[160px]">
-            <img src="/image/p3.png" alt="Komitmen Me-Tech" class="max-h-full max-w-full object-contain" />
-          </div>
-          <h3 class="text-[1.1rem] mb-[10px] font-semibold">Komitmen Me-Tech</h3>
-          <p class="text-[0.95rem] leading-[1.5]">
-            Me-Tech mengajar keberlanjutan bisnis dengan tekad kuat, sambil tetap menjaga kepercayaan setiap stakeholder melalui transparansi, integritas, dan komitmen yang tak tergoyahkan.
-          </p>
-        </div>
+      <div class="relative w-full max-w-[420px] md:max-w-[520px] h-auto flex justify-center">
+        <img src="/image/features/pc.png" alt="Desktop Mockup" class="w-[300px] md:w-[400px] h-auto" />
+        <img src="/image/features/hp.png" alt="HP Mockup"
+          class="absolute w-[100px] md:w-[150px] bottom-0 left-1/2 -translate-x-[100%] md:-translate-x-[110%] z-10" />
       </div>
     </div>
   </section>
 
-
-  <section id="features" class="h-screen flex flex-col-reverse md:flex-row items-center justify-between bg-gradient-to-r from-[#dffffd] to-[#c3fffc] rounded-[20px] p-6 md:p-10 gap-8 w-full max-w-[1200px] mx-auto mt-8">
-  
-  <div class="w-full md:w-1/2 flex flex-col items-center md:items-end">
-  <h2 class="text-[#00a6a6] mb-5 text-[24px] font-semibold text-center md:text-left">Features</h2>
-    <div class="space-y-6">
-     
-      <div class="flex items-center justify-center md:justify-end gap-4">
-        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
-          <p>Menyediakan platform yang berkualitas,</p>
-          <p>komitmen dan terjamin.</p>
-        </div>
-        <img src="/image/f1.png" class="w-7 h-7" alt="icon1">
+  <section id="services"
+    class="min-h-screen flex items-center justify-center px-6 py-16 bg-white from-cyan-50 to-transparent">
+    <div class="w-full max-w-6xl mx-auto">
+      <div class="mb-12 text-center">
+        <h2 class="text-[#01B3BF] text-3xl font-medium mb-2">Our Services</h2>
+        <p class="text-gray-600 text-sm font-medium">Innovative Technology Solutions For Your Business</p>
       </div>
 
-      <div class="flex items-center justify-center md:justify-end gap-4">
-        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
-          <p>Membuka peluang pengembangan usaha (entrepreneurship),</p>
-          <p>yang terintegrasi dengan layanan digital (online).</p>
+      <div class="flex flex-col lg:flex-row gap-4">
+        <div class="flex flex-col gap-4 w-full lg:w-1/3 max-h-64 overflow-y-auto pr-2 custom-scroll">
+          <a id="btn-software"
+            class="service-btn py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5 block cursor-pointer">
+            Software Development</a>
+          <a id="btn-digital"
+            class="service-btn py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5 block cursor-pointer">
+            Digital Payment </a>
+          <a id="btn-online"
+            class="service-btn py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5 block cursor-pointer">
+            Online Ticketing </a>
+          <a id="btn-umra"
+            class="service-btn py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-200 text-left pl-5 block cursor-pointer">
+            Umrah & Hajj Apps </a>
         </div>
-        <img src="/image/f2.png" class="w-7 h-7" alt="icon2">
-      </div>
-
-      <div class="flex items-center justify-center md:justify-end gap-4">
-        <div class="text-[#19656B] text-[16px] leading-relaxed text-center md:text-right">
-          <p>Membantu para pelaku usaha untuk meningkatkan</p>
-          <p>peluang positif dari segi keuntungan material.</p>
-        </div>
-        <img src="/image/f3.png" class="w-7 h-7" alt="icon3">
+        <div id="service-container" class="w-full lg:w-2/3"></div>
       </div>
     </div>
-  </div>
 
-  <div class="w-full md:w-1/2 text-center flex flex-col items-center">
-    <p class="text-[#00a6a6] font-bold mb-5 text-[16px] leading-relaxed text-center">
-      Dapatkan Solusi Kebutuhan Teknologi<br />
-      Bisnis Anda Bersama Kami
-    </p>
-    <img src="/image/pc.png" alt="Device Mockup" class="w-full max-w-[350px] h-auto" />
-  </div>
-</section>
-
-  
-<section id="ourservices" class="px-6 py-16 bg-gradient-to-tr from-cyan-50 to-transparent">
-  <div class="w-full max-w-4xl mx-auto">
-    
-    <div class="mb-10">
-      <h2 class="text-3xl font-semibold text-cyan-600 mb-1">Our Services</h2>
-      <p class="text-gray-600 text-sm">Innovative Technology Solutions For Your Business</p>
-    </div>
-
-    
-    <div class="flex flex-col lg:flex-row gap-10 justify-center">
-      
-      
-      <div class="flex flex-col gap-4 overflow-y-auto max-h-64 pr-2 custom-scroll">
-        <button class="w-full lg:w-56 py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-200 text-left pl-5">
-          Software Development
-        </button>
-        <button class="w-full lg:w-56 py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5">
-          Digital Payment
-        </button>
-        <button class="w-full lg:w-56 py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5">
-          Online Ticketing
-        </button>
-        <button class="w-full lg:w-56 py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5">
-          Umra & Hajj Apps
-        </button>
-        <button class="w-full lg:w-56 py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5">
-          Extra Service
-        </button>
-        <button class="w-full lg:w-56 py-3 bg-cyan-50 text-cyan-600 font-medium rounded-xl shadow hover:bg-cyan-100 text-left pl-5">
-          Additional Menu
-        </button>
-      </div>
-
-      
-      <div class="flex flex-col lg:flex-row items-start gap-6 mt-10 lg:mt-0">
-        <div class="w-full lg:w-auto">
-          <img src="/image/our.png" alt="Laptop Illustration" class="w-full max-w-[18rem] mx-auto lg:mx-0" />
+    <!--kotak-->
+    <template id="service-template">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="w-full lg:w-1/2 flex justify-center">
+          <img src="" alt="Service Illustration" class="service-img w-[300px] max-w-full" />
         </div>
-        <div class="max-w-sm">
-          <h4 class="text-cyan-600 font-semibold text-sm mb-2">Software Development</h4>
-          <p class="text-sm text-gray-700 leading-relaxed">
-            Percayakan manajemen software bisnis <span class="text-cyan-600 font-medium">Anda</span> kepada <span class="text-cyan-600 font-medium">kami</span> demi menghasilkan produk yang baik dan berkualitas.
-          </p>
+        <div class="w-full lg:w-1/2 bg-[#14b4e2] text-white p-6 rounded-xl shadow-md">
+          <h4 class="service-title text-white font-semibold text-lg mb-2"></h4>
+          <p class="service-desc text-sm leading-relaxed"></p>
         </div>
       </div>
-
-    </div>
-  </div>
+    </template>
   </section>
-  
-  
-   <section id="ourclient" class="h-screen py-10 px-4 bg-white">
+
+  <section class=" py-16 px-4 bg-[#F1F7FE]">
     <div class="text-center mb-6">
-      <h2 class="text-[#01B3BF] text-xl font-semibold uppercase">Our Clients</h2>
+      <h2 class="text-[#01B3BF] text-[1.8rem] font-semibold uppercase">Our Clients</h2>
     </div>
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <img src="/image/client/9kita.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Arnes.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Aeroticket.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Alba.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Azkia.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Belibis.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/BPTJ.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/BRI_1.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/bridge syari_1.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Cari ustadz.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/ddi_1.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Dunia Halal.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Faedah.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/gomasgo.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Hot job.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/HRD system.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/KFC.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Kopkar.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Kosami.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/kpop_1.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/MMBC.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/My suzuki.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Nushinushi travel.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Nushinushi.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Pacific travel.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Palapa Mall.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/pasteur.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Payment.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Pro umkm.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Puri yatim.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Rama Optik.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Real Travel.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/RNI.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Spirit ebisnis.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Spirit tour.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Suzuki.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Syirkahmu.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Wakuliner.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/Warung dekat.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+        <img src="/image/client/YAKESNA.png" alt="logo" class=h-12 sm:h-14 md:h-16 object-contain />
+      </div>
+    </div>
+  </section>
 
-    <div class="overflow-hidden w-full">
-      <div class="flex animate-slide w-[200%]">
-        
-        <div class="flex gap-10 items-center w-1/2 justify-center">
-          <img src="/image/suzuku.png" class="h-16 object-contain" />
-          <img src="/image/paster.png" class="h-16 object-contain" />
-          <img src="/image/bri.png" class="h-16 object-contain" />
-          <img src="/image/hot.png" class="h-16 object-contain" />
-          <img src="/image/sembilan.png" class="h-16 object-contain" />
-          <img src="/image/belibis.png" class="h-16 object-contain" />
-          <img src="/image/arnes.png" class="h-16 object-contain" />
-          <img src="/image/dunia.png" class="h-16 object-contain" />
+  <section id="portfolio" class="min-h-screen bg-white px-6 py-16">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10 relative">
+      <div class="w-full md:w-1/2 flex flex-col items-center md:items-start relative">
+        <div class="absolute top-0 left-0 w-full h-full bg-[url('/image/grid.svg')] opacity-10 z-0"></div>
+        <h2 class="text-4xl font-semibold text-cyan-600 mb-8 z-10">Our Portfolio</h2>
+        <img id="mainImageAplikasi" src="/image/portfolio/app/My Suzuki Apps.png" alt="Mockup Aplikasi"
+          class="mx-auto w-64 md:w-74 transition-all duration-300 rounded-2xl bg-transparent ml-8 object-contain" />
+
+        <img id="mainImageWebsite" src="/image/portfolio/Web/Suzuki Web.png" alt="Mockup Website"
+          class="w-65 md:w-83 transition-all duration-300 rounded-2xl bg-transparent hidden object-contain" />
+
+      </div>
+
+
+      <div class="w-full md:w-1/2 flex flex-col z-5">
+        <div class="flex gap-6 border-b border-gray-200 mb-2">
+          <button class="tab-button text-xl text-gray-400 font-medium pb-1 hover:text-cyan-600 transition"
+            data-category="aplikasi">
+            Aplikasi
+          </button>
+          <button class="tab-button text-xl text-gray-400 font-medium pb-1 hover:text-cyan-600 transition"
+            data-category="website">
+            Website
+          </button>
         </div>
 
-        <div class="flex gap-10 items-center w-1/2 justify-center">
-          <img src="/image/suzuku.png" class="h-16 object-contain" />
-          <img src="/image/paster.png" class="h-16 object-contain" />
-          <img src="/image/bri.png" class="h-16 object-contain" />
-          <img src="/image/hot.png" class="h-16 object-contain" />
-          <img src="/image/sembilan.png" class="h-16 object-contain" />
-          <img src="/image/belibis.png" class="h-16 object-contain" />
-          <img src="/image/arnes.png" class="h-16 object-contain" />
-          <img src="/image/dunia.png" class="h-16 object-contain" />
+
+        <div class="grid grid-cols-3 gap-3 sm:grid-cols-4 justify-items-start mb-6" id="logoGrid">
+
+          <a href="#" class="change-image" data-category="aplikasi"
+            data-image="/image/portfolio/app/My Suzuki Apps.png">
+            <img src="/image/client/Suzuki.png" alt="My Suzuki"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="aplikasi" data-image="/image/portfolio/app/Hot-Job-App.png">
+            <img src="/image/client/Hot job.png" alt="Hot Job"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="aplikasi" data-image="/image/portfolio/app/Arnes-Apps.png">
+            <img src="/image/client/Arnes.png" alt="Arnes"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="aplikasi" data-image="/image/portfolio/app/9-Kita Apps.png">
+            <img src="/image/client/9kita.png" alt="9Kita"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+
+          <a href="#" class="change-image" data-category="aplikasi"
+            data-image="/image/portfolio/app/KFC-Whatsapp-bot.png">
+            <img src="/image/client/KFC.png" alt="9Kita"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+
+          <a href="#" class="change-image" data-category="aplikasi"
+            data-image="/image/portfolio/app/Piknik-aja-App.png">
+            <img src="/image/client/Piknik aja.png" alt="9Kita"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+
+          <a href="#" class="change-image" data-category="aplikasi"
+            data-image="/image/portfolio/app/Real-Travel-App.png">
+            <img src="/image/client/Real Travel.png" alt="9Kita"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+
+          <a href="#" class="change-image" data-category="aplikasi" data-image="/image/portfolio/app/Virelo-App.png">
+            <img src="/image/client/Virello.png" alt="9Kita"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+
+          <a href="#" class="change-image" data-category="aplikasi" data-image="/image/portfolio/app/Warung-Dekat.png">
+            <img src="/image/client/Warung dekat.png" alt="9Kita"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+
+          <a href="#" class="change-image" data-category="website" data-image="/image/portfolio/Web/Suzuki Web.png">
+            <img src="/image/client/suzuki.png" alt="Suzuki"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="website" data-image="/image/portfolio/Web/Arnes Web.png">
+            <img src="/image/client/Arnes.png" alt="Arnes Web"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="website" data-image="/image/portfolio/Web/Pasteur Web.png">
+            <img src="/image/client/pasteur.png" alt="Pasteur"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="website"
+            data-image="/image/portfolio/Web/Real-Travel-Web.png">
+            <img src="/image/client/9kita.png" alt="9kita Web"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="website"
+            data-image="/image/portfolio/Web/Skota super App.png">
+            <img src="/image/client/9kita.png" alt="9kita Web"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="website" data-image="/image/portfolio/Web/Suksesku-Web.png">
+            <img src="/image/client/9kita.png" alt="9kita Web"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+          <a href="#" class="change-image" data-category="website" data-image="/image/portfolio/Web/The-Tanis-Web.png">
+            <img src="/image/client/9kita.png" alt="9kita Web"
+              class="w-20 h-20 object-contain hover:scale-105 transition duration-300 rounded-xl" />
+          </a>
+        </div>
+
+        <h3 class="text-cyan-600 text-xl font-semibold mb-1">My Suzuki</h3>
+        <p class="text-gray-600 text-sm leading-relaxed max-w-lg">
+          <span class="font-semibold text-cyan-500">Me-Tech</span> adalah mitra bisnis pilihan bagi banyak perusahaan
+          terkemuka di Indonesia, UKM dan penantang teknologi. Kami membantu meningkatkan bisnis melalui pengembangan.
+        </p>
+      </div>
+    </div>
+
+
+    <style>
+      @keyframes pulseGlow {
+
+        0%,
+        100% {
+          box-shadow:
+            0 2px 4px rgba(81, 226, 192, 0.8),
+            0 0 0 1px rgba(162, 255, 233, 0.15);
+        }
+
+        50% {
+          box-shadow:
+            0 3px 6px rgba(81, 226, 192, 0.12),
+            0 0 0 2px rgba(162, 255, 233, 0.2);
+        }
+      }
+
+      .active-logo img {
+        position: relative;
+        border-radius: 1rem;
+        z-index: 1;
+        transform: scale(1.03);
+        animation: pulseGlow 2s infinite ease-in-out;
+      }
+    </style>
+
+
+    <script>
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const logos = document.querySelectorAll(".change-image");
+      const mainImageAplikasi = document.getElementById("mainImageAplikasi");
+      const mainImageWebsite = document.getElementById("mainImageWebsite");
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const category = this.getAttribute("data-category");
+
+          tabButtons.forEach((b) => {
+            b.classList.remove("text-cyan-600", "font-semibold", "border-b-2", "border-cyan-600");
+            b.classList.add("text-gray-400");
+          });
+          this.classList.add("text-cyan-600", "font-semibold", "border-b-2", "border-cyan-600");
+          this.classList.remove("text-gray-400");
+
+          logos.forEach((logo) => {
+            const cat = logo.getAttribute("data-category");
+            logo.style.display = (cat === category) ? "inline-block" : "none";
+          });
+
+          if (category === "aplikasi") {
+            mainImageAplikasi.classList.remove("hidden");
+            mainImageWebsite.classList.add("hidden");
+          } else {
+            mainImageAplikasi.classList.add("hidden");
+            mainImageWebsite.classList.remove("hidden");
+          }
+
+          logos.forEach((logo) => logo.classList.remove("active-logo"));
+        });
+      });
+
+      logos.forEach((logo) => {
+        logo.addEventListener("click", function (e) {
+          e.preventDefault();
+          logos.forEach((l) => l.classList.remove("active-logo"));
+          this.classList.add("active-logo");
+
+          const img = this.getAttribute("data-image");
+          const category = this.getAttribute("data-category");
+
+          if (category === "aplikasi") {
+            mainImageAplikasi.src = img;
+          } else {
+            mainImageWebsite.src = img;
+          }
+        });
+      });
+
+      window.addEventListener("DOMContentLoaded", () => {
+        document.querySelector('.tab-button[data-category="aplikasi"]').click();
+        const firstLogo = document.querySelector('.change-image[data-category="aplikasi"]');
+        if (firstLogo) firstLogo.click();
+      });
+    </script>
+  </section>
+
+  <section id="team" class="min-h-screen bg-white flex items-center justify-center py-12 px-4">
+    <div class="bg-cyan-50 rounded-3xl w-full max-w-6xl p-10 text-center">
+      <h2 class="text-3xl font-bold text-cyan-600 mb-2">Our Team</h2>
+      <p class="text-base text-gray-600 mb-10">Menyediakan platform yang berkualitas, komitmen dan terjamin.</p>
+
+      <div class="flex flex-wrap justify-center gap-x-12 gap-y-8">
+        <div class="relative bg-white shadow-md rounded-xl min-w-[220px] h-[80px] flex items-center pl-16 pr-4">
+          <div
+            class="absolute left-[-26px] w-[64px] h-[64px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
+            <img src="/image/team/org.png" class="w-[58px] h-[58px] rounded-full object-cover" alt="Femy Try K" />
+          </div>
+          <div class="text-left ml-5">
+            <h4 class="text-cyan-600 font-semibold text-sm">Femy Try K</h4>
+            <p class="text-xs text-gray-600">Executive</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white shadow-md rounded-xl min-w-[220px] h-[80px] flex items-center pl-16 pr-4">
+          <div
+            class="absolute left-[-26px] w-[64px] h-[64px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
+            <img src="/image/team/ogr2.png" class="w-[58px] h-[58px] rounded-full object-cover" alt="Didin" />
+          </div>
+          <div class="text-left ml-5">
+            <h4 class="text-cyan-600 font-semibold text-sm">Didin</h4>
+            <p class="text-xs text-gray-600">CO Founder</p>
+          </div>
+        </div>
+
+        <div class="relative bg-white shadow-md rounded-xl min-w-[220px] h-[80px] flex items-center pl-16 pr-4">
+          <div
+            class="absolute left-[-26px] w-[64px] h-[64px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
+            <img src="/image/team/org3.png" class="w-[58px] h-[58px] rounded-full object-cover" alt="Dede Hermawan" />
+          </div>
+          <div class="text-left ml-5">
+            <h4 class="text-cyan-600 font-semibold text-sm">Dede Hermawan</h4>
+            <p class="text-xs text-gray-600">Executive</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  
-  <div class="px-8">
-  <section id="phortofolio" class="h-screen max-w-6xl mx-auto px-6 py-12">
-    <div class="flex flex-col md:flex-row items-start md:items-center gap-10">
-      
-      <div class="w-full md:w-1/2 flex justify-center">
-        <img src="/image/hp.png" alt="Mockup App" class="w-60 md:w-72">
+  <section id="contact" class="min-h-screen bg-white px-4 py-12 flex flex-col items-center justify-center">
+    <h1 class="text-[2rem] md:text-[3rem] font-semibold text-[#01B3BF] mb-10 w-full max-w-6xl text-left">
+      Contact US
+    </h1>
+
+    <div
+      class="max-w-6xl w-full flex flex-col md:flex-row bg-white shadow-md border border-gray-300 rounded-md overflow-hidden">
+
+      <div class="w-full md:w-2/3">
+        <div class="relative w-full h-[300px] md:h-[400px]">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.6920072302887!2d107.6597654!3d-6.930908999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9f3f0db63b7%3A0x4ebd07c683f69ff1!2sPT.%20Milenial%20Elite%20Teknologi!5e1!3m2!1sid!2sid!4v1753084739522!5m2!1sid!2sid"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" class="absolute top-0 left-0 w-full h-full">
+          </iframe>
+        </div>
       </div>
 
-      <div class="w-full md:w-1/2">
-        <h2 class="text-cyan-700 text-2xl font-semibold mb-1">Our Portfolio</h2>
-        <p class="text-sm text-gray-600 mb-6">Menyediakan platform yang berkualitas, komitmen dan terjamin.</p>
+      <div class="w-full md:w-1/3 p-6 space-y-4 flex flex-col justify-center">
 
-        <div class="flex space-x-6 border-b mb-6">
-          <button class="text-cyan-700 font-semibold border-b-2 border-cyan-700 pb-1">Aplikasi</button>
-          <button class="text-gray-400 font-medium">Website</button>
+        <div class="flex items-start gap-3">
+          <img src="/image/contact/alamat.png" alt="Lokasi" class="w-5 h-5 mt-1">
+          <p>Jl. Kawaluyaan Indah XXI No.8 , Bandung, Jawa Barat</p>
         </div>
 
-        <div class="grid grid-cols-3 gap-4 items-center">
-          <img src="/image/suzuku.png" alt="My Suzuki" class="h-6 md:h-8">
-          <img src="/image/paster.png" alt="Pasteur Trans" class="h-6 md:h-8">
-          <img src="/image/dunia.png" alt="Dunia Halal" class="h-6 md:h-8">
-          <img src="/image/hot.png" alt="Hot Jobs" class="h-6 md:h-8">
-          <img src="/image/arnes.png" alt="Arnes Shuttle" class="h-6 md:h-8">
-          <img src="/image/sembilan.png" alt="Sembilan Kita" class="h-6 md:h-8">
-          <img src="/image/hot.png" alt="Hot Jobs" class="h-6 md:h-8">
-          <img src="/image/arnes.png" alt="Arnes Shuttle" class="h-6 md:h-8">
-          <img src="/image/sembilan.png" alt="Sembilan Kita" class="h-6 md:h-8">
+        <div class="flex items-start gap-3">
+          <img src="/image/contact/wa.png" alt="WhatsApp" class="w-5 h-5 mt-1">
+          <p>+62 812 3456 7890 </p>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <img src="/image/contact/email.png" alt="Email" class="w-5 h-5 mt-1">
+          <p>info@me-tech.id</p>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <img src="/image/contact/jam.png" alt="Jam Operasional" class="w-5 h-5 mt-1">
+          <p>Senin - Jumat, 10.00 - 18.00 WIB</p>
         </div>
       </div>
     </div>
   </section>
-  </div>
-  
-  
-   <section id="ourteam" class="h-screen bg-cyan-60 text-center py-16 px-6 rounded-md">
-    <div class="px-8">
-    <h2 class="text-2xl font-bold text-cyan-600 mb-2">Our Team</h2>
-    <p class="text-sm text-gray-600 mb-10">Menyediakan platform yang berkualitas, komitmen dan terjamin.</p>
-    <div class="flex flex-wrap justify-center gap-10">
-   
-      <div class="relative bg-white shadow-lg rounded-xl w-[340px] h-[120px] flex items-center pl-20 pr-6">
-        <div class="absolute left-[-30px] w-[100px] h-[100px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
-          <img src="/image/org.png" class="w-[90px] h-[90px] rounded-full object-cover" />
-        </div>
-        <div class="text-left ml-6">
-          <h4 class="text-cyan-600 font-semibold text-lg">Femy Try K</h4>
-          <p class="text-sm text-gray-600 mt-1">Executive</p>
+
+  <footer class="bg-gradient-to-t from-[#F5F5F5] to-[#F0F0F0] text-gray-700 pt-10 pb-4 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <p class="mb-4 text-[#888888]">
+          Percayakan bisnis Anda kepada kami demi menghasilkan produk yang baik dan berkualitas.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#"><img src="/image/footer/metech.png" alt="Me-Tech" class="h-10" /></a>
         </div>
       </div>
- 
-      <div class="relative bg-white shadow-lg rounded-xl w-[340px] h-[120px] flex items-center pl-20 pr-6">
-        <div class="absolute left-[-30px] w-[100px] h-[100px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
-          <img src="/image/org.png" class="w-[90px] h-[90px] rounded-full object-cover" />
-        </div>
-        <div class="text-left ml-6">
-          <h4 class="text-cyan-600 font-semibold text-lg">Didin</h4>
-          <p class="text-sm text-gray-600 mt-1">CO Founder</p>
+
+      <div>
+        <h3 class="font-bold text-[#01B3BF] mb-2">OUR SERVICE</h3>
+        <ul class="space-y-2 text-[#19656B]">
+          <li>Software Development</li>
+          <li>Online Ticketing</li>
+          <li>Digital Payment</li>
+          <li>Umrah & Haji Apps</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-[#01B3BF] mb-2 ">CONTACT US</h3>
+        <ul class="space-y-2 text-[#19656B]">
+          <li>Jln. Kawaluyaan Indah XXI no.8</li>
+          <li>Kota Bandung - Jawa Barat</li>
+        </ul>
+        <p class="mt-2 text-[#19656B]"><strong>Phone</strong> : +62 878-2323-7339</p>
+        <p class="mt-2 text-[#19656B]"><strong>Email</strong> : info@me-tech.id</p>
+      </div>
+
+      <div>
+        <h3 class="font-bold text-[#01B3BF] mb-2">SOCIAL MEDIA</h3>
+        <div class="flex space-x-4">
+          <a href="#"><img src="/image/footer/fb.png" alt="Facebook" class="h-6" /></a>
+          <a href="#"><img src="/image/footer/ig.png" alt="Instagram" class="h-6" /></a>
+          <a href="#"><img src="/image/footer/linkdin.png" alt="LinkedIn" class="h-6" /></a>
         </div>
       </div>
-  
-      <div class="relative bg-white shadow-lg rounded-xl w-[340px] h-[120px] flex items-center pl-20 pr-6">
-        <div class="absolute left-[-30px] w-[100px] h-[100px] bg-cyan-400 rounded-full border-4 border-white flex items-center justify-center shadow">
-          <img src="/image/org.png" class="w-[90px] h-[90px] rounded-full object-cover" />
-        </div>
-        <div class="text-left ml-6">
-          <h4 class="text-cyan-600 font-semibold text-lg">Dede Hermawan</h4>
-          <p class="text-sm text-gray-600 mt-1">Executive</p>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-  
-
-  <div px-8>
-  <footer class="h-screen bg-gradient-to-t from-[#DFFFFD] to-white text-gray-700 pt-10 pb-4 px-6">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-sm">
-    <div>
-      <p class="mb-4">
-        Percayakan bisnis Anda kepada kami demi menghasilkan produk yang baik dan berkualitas.
-      </p>
-      <div class="flex space-x-4">
-        <a href="#"><img src="/image/metech.png" alt="Me-Tech" class="h-6" /></a>
-    </div>
     </div>
 
-    <div>
-      <h3 class="font-bold text-[#01B3BF] mb-2">OUR SERVICE</h3>
-      <ul class="space-y-1">
-        <li>Software Development</li>
-        <li>Online Ticketing</li>
-        <li>Digital Payment</li>
-        <li>Umrah & Haji Apps</li>
-      </ul>
+    <div class="mt-8 text-left text-xs font-bold text-[#3D3D3D] border-t border-gray-200 pt-4">
+      © 2020 PT. MILENIAL ELITE TECHNOLOGY
     </div>
+  </footer>
 
-    <div>
-      <h3 id="contact" class="font-bold text-[#01B3BF] mb-2">CONTACT US</h3>
-      <p>Jln. Kawaluyaan Indah XXI no.8<br />Kota Bandung – Jawa Barat</p>
-      <p class="mt-2"><strong>Phone</strong> : +62 878-2323-7339</p>
-      <p><strong>Email</strong> : info@me-tech.id</p>
-    </div>
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("nav a");
 
-    <div>
-      <h3 id="contact" class="font-bold text-[#01B3BF] mb-2">SOCIAL MEDIA</h3>
-      <div class="flex space-x-4">
-        <a href="#"><img src="/image/fb.png" alt="Facebook" class="h-6" /></a>
-        <a href="#"><img src="/image/ig.png" alt="Instagram" class="h-6" /></a>
-        <a href="#"><img src="/image/linkdin.png" alt="LinkedIn" class="h-6" /></a>
-      </div>
-    </div>
-  </div>
+    function activateMenu() {
+      let scrollY = window.scrollY;
 
-  <div class="mt-8 text-left text-xs font-bold text-black border-t border-gray-200 pt-4">
-  © 2020 PT. MILENIAL ELITE TECHNOLOGY
-</div>
+      if (scrollY < 200) {
+        navLinks.forEach(link => {
+          link.classList.remove("font-bold");
+          if (link.getAttribute("href") === "#home") {
+            link.classList.add("font-bold");
+          }
+        });
+        return;
+      }
 
-</footer>
-</div>
+      sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 100;
+        const sectionId = current.getAttribute("id");
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove("font-bold");
+            if (link.getAttribute("href") === #${ sectionId }) {
+            link.classList.add("font-bold");
+          }
+        });
+    }
+    });
+  }
+
+    window.addEventListener("load", activateMenu);
+    window.addEventListener("scroll", activateMenu);
+  </script>
+
+  <script>
+    const serviceData = {
+      software: {
+        img: "/image/service/Software Development.svg",
+        title: "Software Development",
+        desc: 'Percayakan manajemen software bisnis Anda kepada kami demi menghasilkan produk yang baik dan berkualitas.'
+      },
+      digital: {
+        img: "/image/service/Digital Payment_1.svg",
+        title: "Digital Payment",
+        desc: 'Bawa konsumen anda dengan kemudahan bertransaksi lewat platform pembayaran digital.'
+      },
+      online: {
+        img: "/image/service/Online Ticekting.svg",
+        title: "Online Ticketing",
+        desc: 'Berinteraksi dan akses layanan kini semudah chat lewat Whatsapp. Mari tingkatkan customer experience anda dengan solusi online ticketing.'
+      },
+      umra: {
+        img: "/image/service/Umrah HAJJ.svg",
+        title: "Umrah & Hajj Apps",
+        desc: 'Optimalkan layanan Umrah dan Haji biro travel anda dengan aplikasi umrah dan haji berbasis web dan mobile.'
+      }
+    };
+
+    const container = document.getElementById('service-container');
+    const template = document.getElementById('service-template');
+
+    function renderService(key) {
+      const data = serviceData[key];
+      const clone = template.content.cloneNode(true);
+
+      clone.querySelector('.service-img').src = data.img;
+      clone.querySelector('.service-title').innerHTML = data.title;
+      clone.querySelector('.service-desc').innerHTML = data.desc;
+
+      container.innerHTML = '';
+      container.appendChild(clone);
+    }
+
+    renderService('software');
+    document.querySelectorAll('.service-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.id.split('-')[1];
+        renderService(key);
+      });
+    });
+
+    const buttons = document.querySelectorAll('.service-btn');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(el => el.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+
+  <script>
+    const menuBtn = document.querySelector('button[onclick="toggleMenu()"]');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function toggleMenu() {
+      mobileMenu.classList.toggle('hidden');
+    }
+
+    document.addEventListener("click", function (e) {
+      if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+  </script>
 
 </body>
+
 </html>
